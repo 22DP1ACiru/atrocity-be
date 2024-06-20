@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'username' => 'Admin',
             'email' => 'admin@example.com',
             'password' => Hash::make('password'),
-            'profilePicture' => 'default_profile.webp',
+            'profilePictureLocation' => 'http://localhost:8000/uploads/profiles/default.webp',
             'accountDescription' => 'Admin account',
             'followerCount' => 0,
             'isAdmin' => true,

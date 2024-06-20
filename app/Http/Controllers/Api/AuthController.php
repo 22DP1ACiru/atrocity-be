@@ -28,7 +28,13 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return response()->json(['message' => 'Registration successful'], 201);
+        $token = $user->createToken('authToken')->plainTextToken;
+
+        return response()->json([
+            'message' => 'Registration successful',
+            'access_token' => $token,
+            'token_type' => 'Bearer'
+        ], 201);
     }
 
     /**
@@ -49,7 +55,6 @@ class AuthController extends Controller
             ]);
         }
 
-        // Create a Sanctum token for the user
         $token = $user->createToken('authToken')->plainTextToken;
 
         return response()->json([

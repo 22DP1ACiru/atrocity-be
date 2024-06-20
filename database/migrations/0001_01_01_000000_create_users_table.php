@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('accountDescription')->nullable();
-            $table->string('profilePicture')->nullable(); // Storing file paths
+            $table->string('profilePictureLocation')->default('uploads/profiles/default.webp'); // stores relative filepaths
             $table->integer('followerCount')->default(0);
             $table->boolean('isAdmin')->default(false);
             $table->rememberToken();
